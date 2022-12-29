@@ -1,7 +1,7 @@
 {
   "name": "graphql-formula1-apirest",
   "version": "1.0.0",
-  "description": "Hello world in GraphQL for first steps",
+  "description": "API Graphql F1 from APIRest",
   "main": "build/server.js",
   "scripts": {
     "start": "node build/server.js",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/hugoroca/graphql-formula1-apirest.git"
   },
-  "keywords": [],
+  "keywords": ["api-rest-to-graphql", "graphql", "api-rest", "graphql-formula1"],
   "author": "Hugo Roca <>",
   "license": "MIT",
   "bugs": {
