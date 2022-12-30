@@ -1,4 +1,3 @@
-// Añadir los imports
 import express from 'express';
 import compression from 'compression';
 import cors from 'cors';
@@ -9,20 +8,19 @@ import expressPlayGround from 'graphql-playground-middleware-express';
 import { dataSources } from './data';
 
 async function init() {
-    // Inicializamos la aplicación express
     const app = express();
 
-    // Añadimos configuración de Cors y compression
     app.use(cors());
 
     app.use(compression());
 
-    // Inicializamos el servidor de Apollo
     const server = new ApolloServer({
         schema,
         introspection: true,
         dataSources: () => ({
-            seasons: new dataSources.SeasonsData()
+            seasons: new dataSources.SeasonsData(),
+            races: new dataSources.RacesData(),
+            drivers: new dataSources.DriversData()
         })
     });
 
