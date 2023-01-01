@@ -22,6 +22,14 @@ const type: IResolvers = {
     name: parent => parent.givenName.concat(' ', parent.familyName),
     urlMobile: parent => getWikipediaMobileUrl(parent.url),
   },
+  DriverStanding: {
+    driver: parent => parent.Driver,
+    constructors: parent => parent.Constructors,
+  },
+  Constructors: {
+    id: parent => parent.constructorId,
+    urlMobile: parent => getWikipediaMobileUrl(parent.url),
+  },
 };
 
 export default type;

@@ -1,11 +1,24 @@
 type Query {
+  "Get all seasons of Formula 1. From 1950 to current year."
   seasons: [Season!]!
+  "Get information about a specific season by year. From 1950 to current year."
   racesByYear(year: String!): [Race!]!
+  "Get information about a specific season by year and round. From 1950 to current year."
   raceByYearAndRound(year: String!, round: Int!): Race
+  "Get all drivers of formula 1."
   drivers(size: Int, page: Int): [Driver!]!
+  "Get all drivers of formula 1 by year."
   driversByYear(year: String): [Driver!]!
+  "Get all drivers of formula 1 by year and round."
   driversByYearAndRound(year: String!, round: Int!): [Driver!]!
+  "Get driver by id."
   driverSelect(id: String!): Driver
+  "Clasification of drivers by season."
+  seasonPilotsRanking(year: String!): [DriverStanding!]!
+  "Historical circuits of formula 1."
+  circuits(size: Int, page: Int): [Circuit!]!
+  "Circuits of formula 1 by id."
+  circuitById(id: String!): Circuit
 }
 
 type Season {
@@ -49,4 +62,21 @@ type Driver {
   nationality: String!
   permanentNumber: String
   code: String
+}
+
+type Constructors {
+  id: String!
+  url: String!
+  urlMobile: String!
+  name: String!
+  nationality: String!
+}
+
+type DriverStanding {
+  position: String!
+  positionText: String!
+  points: String!
+  wins: String!
+  driver: Driver
+  constructors: [Constructors!]!
 }

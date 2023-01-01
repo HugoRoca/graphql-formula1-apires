@@ -37,6 +37,21 @@ const query: IResolvers = {
         .getDriver(id)
         .then((response: any) => response.MRData.DriverTable.Drivers[0]);
     },
+    async seasonPilotsRanking(_, { year }, { dataSources }) {
+      return await dataSources.drivers
+        .getDriverStandings(year)
+        .then((response: any) => response.MRData.StandingsTable.StandingsLists[0].DriverStandings);
+    },
+    async circuits(_, { size, page }, { dataSources }) {
+      return await dataSources.circuits
+        .getCircuits(size, page)
+        .then((response: any) => response.MRData.CircuitTable.Circuits);
+    },
+    async circuitById(_, { id }, { dataSources }) {
+      return await dataSources.circuits
+        .getCircuit(id)
+        .then((response: any) => response.MRData.CircuitTable.Circuits[0]);
+    }
   },
 };
 
