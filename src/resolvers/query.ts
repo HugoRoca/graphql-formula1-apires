@@ -22,6 +22,21 @@ const query: IResolvers = {
         .getDrivers(size, page)
         .then((response: any) => response.MRData.DriverTable.Drivers);
     },
+    async driversByYear(_, { year }, { dataSources }) {
+      return await dataSources.drivers
+        .getDriversByYear(year)
+        .then((response: any) => response.MRData.DriverTable.Drivers);
+    },
+    async driversByYearAndRound(_, { year, round }, { dataSources }) {
+      return await dataSources.drivers
+        .getDriversByYearAndRound(year, round)
+        .then((response: any) => response.MRData.DriverTable.Drivers);
+    },
+    async driverSelect(_, { id }, { dataSources }) {
+      return await dataSources.drivers
+        .getDriver(id)
+        .then((response: any) => response.MRData.DriverTable.Drivers[0]);
+    },
   },
 };
 
